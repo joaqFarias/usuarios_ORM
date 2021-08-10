@@ -1,0 +1,30 @@
+from usersapp.models import *
+
+user1 = users.objects.create(first_name='Joaquin', last_name='Farias', email_address='jf@gmail.com', age=27)
+
+user2 = users.objects.create(first_name='Benjamin', last_name='Farias', email_address='bf@gmail.com', age=22)
+
+user3 = users.objects.create(first_name='Rebeca', last_name='Muñoz', email_address='rm@gmail.com', age=54)
+
+all_users = users.objects.all()
+
+print(all_users)
+
+
+last_user = users.objects.last()
+
+first_user = users.objects.first()
+
+
+user_id3 = users.objects.get(id=3)
+
+user_id3.last_name = 'Pancakes'
+
+user_id3.save()
+
+users.objects.get(id=2).delete()
+
+all_user_orderbyname = users.objects.all().order_by('first_name')
+
+all_user_orderbyname_desc = users.objects.all().order_by('-first_name')
+
